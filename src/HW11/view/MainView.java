@@ -1,7 +1,8 @@
 package HW11.view;
 
-import java.util.Scanner;
 import HW11.model.TrafficLight;
+
+import java.util.Scanner;
 
 public class MainView {
 
@@ -9,10 +10,10 @@ public class MainView {
 
     public TrafficLight getData() {
         System.out.print("Please, enter the traffic light (RED; YELLOW; GREEN): ");
-        return TrafficLight.valueOf(scannerTraffic.nextLine().trim().toUpperCase()) ;
+        return TrafficLight.valueOf(scannerTraffic.nextLine().trim().toUpperCase());
     }
 
-    public void getOutput (String output) {
+    public void getOutput(String output) {
         scannerTraffic.close();
         System.out.println(output);
     }

@@ -5,22 +5,24 @@ import HW11.model.TrafficLight;
 
 public class MainController {
 
-   private final MainView view = new MainView();
+    private final MainView view = new MainView();
 
     public String getLight(TrafficLight light) {
-        switch (light) {
-            case RED:
-                return "Please, stand still.";
-            case YELLOW:
-                return "Please, stand by.";
-            case GREEN:
-                return "GO !!!";
-            default:
-                return "Traffic lights do not work...";
-        }
+
+        return switch (light) {
+            case RED -> "Please, stand still.";
+            case YELLOW -> "Please, stand by.";
+            case GREEN -> "GO !!!";
+            default -> "Traffic lights do not work...";
+        };
     }
 
-    public  void  getResult(){
-       view.getOutput(getLight(view.getData()));
+    public void getResult() {
+        try {
+            view.getOutput(getLight(view.getData()));
+        } catch (Exception error) {
+            view.getOutput("Exception: " + error.getMessage());
+        }
+
     }
 }
